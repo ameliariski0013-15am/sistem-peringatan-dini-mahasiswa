@@ -1,0 +1,25 @@
+
+{% extends "base.html" %}
+
+{% block title %}Cari Mahasiswa{% endblock %}
+
+{% block content %}
+
+<h2>Pencarian Mahasiswa</h2>
+<p>Masukkan NIM mahasiswa yang ingin dicari.</p>
+
+<form method="POST" action="{{ url_for('cari_nim') }}">
+    <label for="nim">Nomor Induk Mahasiswa (NIM):</label>
+
+    <input
+        type="text"
+        id="nim"
+        name="nim"
+        placeholder="Contoh: A11.2023.00001"
+        required
+    >
+
+    <button type="submit">Cari Mahasiswa</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,51 @@
+
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Sistem Peringatan Dini{% endblock %}
+
+{% block content %}
+
+<h2>Dashboard</h2>
+<p>Selamat datang di Sistem Peringatan Dini Mahasiswa.</p>
+
+<section class="kartu">
+    <h3>Total Mahasiswa</h3>
+    <p class="angka">{{ total }}</p>
+</section>
+
+<h3>Daftar Mahasiswa Berisiko</h3>
+
+{% if berisiko %}
+<table>
+    <thead>
+        <tr>
+            <th>NIM</th>
+            <th>Nama</th>
+            <th>Program Studi</th>
+            <th>IPK</th>
+            <th>Kehadiran</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for mhs in berisiko %}
+        <tr>
+            <td>{{ mhs.nim }}</td>
+            <td>{{ mhs.nama|title }}</td>
+            <td>{{ mhs.prodi }}</td>
+            <td>{{ mhs.ipk }}</td>
+            <td>{{ mhs.kehadiran|persen }}</td>
+            <td>
+                <span class="peringatan">Perlu Perhatian</span>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% else %}
+<p>Tidak ada mahasiswa yang terindikasi berisiko.</p>
+{% endif %}
+
+{% endblock %}

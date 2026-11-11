@@ -1,0 +1,58 @@
+
+{% extends "base.html" %}
+
+{% block title %}Data Mahasiswa{% endblock %}
+
+{% block content %}
+
+<h2>Data Mahasiswa</h2>
+<p>Daftar mahasiswa berdasarkan program studi.</p>
+
+<form method="GET" action="{{ url_for('daftar_mahasiswa') }}">
+    <label>Filter Program Studi:</label>
+
+    <select name="prodi">
+        <option value="">Semua Program Studi</option>
+        <option value="SI" {% if prodi == "SI" %}selected{% endif %}>Sistem Informasi</option>
+        <option value="TI" {% if prodi == "TI" %}selected{% endif %}>Teknik Informatika</option>
+        <option value="MI" {% if prodi == "MI" %}selected{% endif %}>Manajemen Informatika</option>
+    </select>
+
+    <button type="submit">Filter</button>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>NIM</th>
+            <th>Nama</th>
+            <th>Prodi</th>
+            <th>IPK</th>
+            <th>Predikat</th>
+            <th>Kehadiran</th>
+            <th>Aksi</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for mhs in data %}
+        <tr>
+            <td>{{ mhs.nim }}</td>
+            <td>{{ mhs.nama|title }}</td>
+            <td>{{ mhs.prodi }}</td>
+            <td>{{ mhs.ipk }}</td>
+            <td>{{ mhs.ipk|predikat }}</td>
+            <td>{{ mhs.kehadiran|persen }}</td>
+            <td>
+                <a href="{{ url_for('detail_mahasiswa', nim=mhs.nim) }}">Detail</a>
+            </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="7">Data mahasiswa tidak ditemukan.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+
+{% extends "base.html" %}
+
+{% block title %}Detail Mahasiswa{% endblock %}
+
+{% block content %}
+
+<h2>Detail Mahasiswa</h2>
+
+<div class="kartu">
+    <p><strong>NIM:</strong> {{ mhs.nim }}</p>
+    <p><strong>Nama:</strong> {{ mhs.nama|title }}</p>
+    <p><strong>Program Studi:</strong> {{ mhs.prodi }}</p>
+    <p><strong>IPK:</strong> {{ mhs.ipk }}</p>
+    <p><strong>Predikat:</strong> {{ mhs.ipk|predikat }}</p>
+    <p><strong>Kehadiran:</strong> {{ mhs.kehadiran|persen }}</p>
+
+    {% if mhs.ipk < 2.76 or mhs.kehadiran < 0.65 %}
+        <p class="peringatan">Status: Perlu Pendampingan</p>
+    {% else %}
+        <p class="aman">Status: Kondisi Akademik Aman</p>
+    {% endif %}
+</div>
+
+<a href="{{ url_for('daftar_mahasiswa') }}">Kembali ke Data Mahasiswa</a>
+
+{% endblock %}

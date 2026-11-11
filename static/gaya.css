@@ -1,0 +1,180 @@
+
+/* Pengaturan dasar halaman */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Bagian header */
+header {
+    background-color: #17365d;
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 27px;
+}
+
+header p {
+    margin: 5px 0 0;
+}
+
+/* Navigasi */
+nav {
+    background-color: #24558a;
+    padding: 14px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #ffd166;
+}
+
+/* Konten utama */
+main {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 25px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    min-height: 350px;
+}
+
+h2 {
+    color: #17365d;
+}
+
+/* Kartu informasi */
+.kartu {
+    background-color: #f8fbff;
+    border-left: 5px solid #24558a;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.angka {
+    font-size: 35px;
+    font-weight: bold;
+    color: #24558a;
+    margin: 0;
+}
+
+/* Tabel */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th {
+    background-color: #24558a;
+    color: white;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f6fa;
+}
+
+/* Status mahasiswa */
+.peringatan {
+    color: #b42318;
+    background-color: #fee4e2;
+    padding: 5px 9px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.aman {
+    color: #067647;
+    background-color: #d1fadf;
+    padding: 5px 9px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Form dan tombol */
+form {
+    margin: 20px 0;
+}
+
+input, select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 5px;
+    max-width: 100%;
+}
+
+button {
+    background-color: #24558a;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #17365d;
+}
+
+main a {
+    color: #24558a;
+}
+
+/* Footer */
+footer {
+    background-color: #17365d;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+}
+
+/* Tampilan perangkat mobile */
+@media (max-width: 700px) {
+    main {
+        margin: 15px;
+        padding: 15px;
+        overflow-x: auto;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 5px 8px;
+    }
+
+    table {
+        min-width: 650px;
+    }
+
+    header h1 {
+        font-size: 22px;
+    }
+}
